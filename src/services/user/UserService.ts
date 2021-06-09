@@ -13,15 +13,15 @@ class UserService {
     return this._userRepository.list({ limit, skip });
   }
 
-  public async get(query): Promise<IUser> {
-    const { id } = query;
-    return this._userRepository.get({id});
+  public async get(): Promise<IUser[]> {
+    return this._userRepository.get();
   }
 
   public async create(query): Promise<IUser> {
-    const { name } = query;
+    const { name, testId } = query;
     return this._userRepository.create({
       name,
+      testId,
     });
   }
 
@@ -39,6 +39,10 @@ class UserService {
       id,
     });
   }
+
+  // public async count(query): Promise<number> {
+  //   return this._userRepository.count();
+  // }
 }
 
 export default UserService;

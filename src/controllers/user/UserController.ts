@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { NextFunction, Request, Response } from 'express';
-import { users } from '../../libs/mockData';
+// import { users } from '../../libs/mockData';
 import { UserService } from '../../services';
 
 class UserController {
@@ -22,7 +22,7 @@ class UserController {
    public getUsers = async (req: Request, res: Response, next: NextFunction) => {
     try {
         console.log('inside get method');
-        // const user = this.userRepository.get({});
+        const users = await this.userRepository.get();
         if (!users) {
             return res.status(200).send({
                 data: [],
@@ -48,7 +48,8 @@ class UserController {
 }
 public getUserSvc = async (req: Request, res: Response, next: NextFunction) => {
   try {
-      console.log('inside get method========');
+      console.log('inside get method svc 2 svc');
+      const users = await this.userRepository.get();
       const respons = await axios.get('http://localhost:4000/api/userinfo/');
       const infoData = respons.data;
       res.status(200).send({

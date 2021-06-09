@@ -3,7 +3,7 @@ import * as mongoose from 'mongoose';
 import * as sinon from 'sinon';
 import * as supertest from 'supertest';
 import { StatusCodes } from '../../libs/utilities';
-import { homeModel } from '../../repositories/business/user/model';
+import { userModel } from '../../repositories/business/user/model';
 import config from '../../config/configuration';
 import { API_PREFIX } from '../../libs/constants';
 import Server from '../../Server';

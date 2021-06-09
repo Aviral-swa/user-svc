@@ -1,4 +1,6 @@
 import * as mongoose from 'mongoose';
+import { userSeed } from './seedData';
+
 export interface IDatabaseConfig {
   mongoUri: string;
   testEnv: boolean;
@@ -6,7 +8,7 @@ export interface IDatabaseConfig {
 
 export default class Database {
   public static  open({mongoUri, testEnv}: IDatabaseConfig) {
-    return new Promise((resolve, reject) => {
+    return new Promise<void>((resolve, reject) => {
       // Mongoose options
       const options = {
         autoIndex: false, // Don't build indexes
@@ -24,6 +26,7 @@ export default class Database {
         if (err) {
           return reject(err);
         }
+        userSeed();
         resolve();
       });
 

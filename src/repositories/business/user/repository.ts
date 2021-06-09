@@ -29,10 +29,10 @@ export default class UserRepository extends VersioningRepository<IUserModel,
    * @property {string} id - _id of the record
    * @returns {User}
    */
-  public async get(query: IQueryGet): Promise<Nullable<IUserModel>> {
+  public async get(): Promise<Nullable<IUserModel[]>> {
 
     console.debug('UserRepository - Get: ');
-    return super.getById(query.id);
+    return super.getAll();
   }
 
   /**
@@ -73,4 +73,9 @@ export default class UserRepository extends VersioningRepository<IUserModel,
     console.debug('UserRepository - Hard Delete: ');
     return super.hardRemove(query);
   }
+
+  // public async count(): Promise<number> {
+  //   console.debug('UserRepository - count: ');
+  //   return userModel.countDocuments();
+  // }
 }

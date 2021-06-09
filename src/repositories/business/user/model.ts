@@ -110,7 +110,7 @@ userSchema.pre('save', (next: any) => {
 /**
  * Indicies
  */
-userSchema.index({ name: 1 }, { unique: true });
+userSchema.index({ name: 1, testId: 1 }, { unique: true });
 
 /**
  * Methods

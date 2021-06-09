@@ -6,6 +6,10 @@ export default class HomeSchema extends VersionableSchema {
             required: true,
             type: String,
         },
+        testId: {
+          required: true,
+          type: Number,
+      },
     };
 
     super(baseSchema, options);

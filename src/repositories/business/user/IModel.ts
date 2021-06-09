@@ -1,6 +1,6 @@
 import IVersionableDocument from '../../versionable/IVersionableDocument';
 
 export default interface IUserModel extends IVersionableDocument {
-  id: string;
+  testId: number;
   name: string;
 }
